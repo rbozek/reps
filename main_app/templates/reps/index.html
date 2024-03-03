@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/reps/rep-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>My Reps</h1>
+  <img src="{% static 'images/flexarm-sm.png' %}" alt="Arm" />
+</section>
+
+<section class="card-container">
+  {% for rep in reps %}
+
+    <div class="card">
+      <div class="card-content">
+
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/flexarm-sm.png' %}" 
+            alt="the same arm"
+            height="50px"
+          >
+        </div>
+
+        <h2 class="card-title">{{ rep.name }}</h2>
+        <h3>{{ rep.category }}</h3>
+        <p><small>spent {{ rep.timespent }} on {{ rep.timestamp }}</small></p>
+        <p>{{ rep.description }} </p>
+
+      </div>
+    </div>
+
+  {% endfor %}
+</section>
+
+{% endblock %}
