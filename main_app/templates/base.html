@@ -9,7 +9,7 @@
   <link
     rel="shortcut icon"
     type="image/png"
-    href="{% static 'images/flexarm-sm.png' %}"
+    href="{% static 'images/favicon-muscle.png' %}"
   >
   <title>Reps</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
@@ -35,6 +35,7 @@
     <nav>
       <ul>
         <li><a href="{% url 'rep-index' %}">View My Reps</a></li>
+        <li><a href="{% url 'rep-create' %}">Add a Rep</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>

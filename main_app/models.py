@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from datetime import datetime
 
 
@@ -14,3 +15,6 @@ class Rep(models.Model):
 
   def __str__(self):
     return self.name
+  
+  def get_absolute_url(self):
+    return reverse('rep-detail', kwargs={'rep_id': self.id})
