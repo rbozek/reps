@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Rep
 
 #RB Step 1, for home view - unused now that we re-defined
@@ -39,5 +39,15 @@ class RepCreate(CreateView):
   model = Rep
   fields = '__all__'
   # fields = ['name', 'category', 'timespent', 'description']
-  # success_url = '/reps/'
   success_url = '/reps/'
+
+class RepUpdate(UpdateView):
+  model = Rep
+  fields = '__all__'
+  # can specify specific fields if there's something we dont want to allow edit
+  # fields = ['category', 'timespent', 'description']
+
+class RepDelete(DeleteView):
+  model = Rep
+  success_url = '/reps/'
+

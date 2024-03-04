@@ -26,6 +26,11 @@
     <p><small>spent {{ rep.timespent }} minutes on {{ rep.created }}</small></p>
     <p>{{ rep.description }} </p>
 
+    <div class="rep-actions">
+      <a href="{% url 'rep-update' rep.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'rep-delete' rep.id %}" class="btn danger">Delete</a>
+    </div>
+
   </div>
 </section>
 
