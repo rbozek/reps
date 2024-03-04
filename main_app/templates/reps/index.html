@@ -13,7 +13,8 @@
 
 <section class="page-header">
   <h1>My Reps</h1>
-  <img src="{% static 'images/flexarm-sm.png' %}" alt="Arm" />
+  <h2>My Reps image here</h2>
+  {% comment %} <img src="{% static 'images/flexarm-sm.png' %}" alt="Arm" /> {% endcomment %}
 </section>
 
 <section class="card-container">
@@ -25,11 +26,12 @@
         <div class="card-content">
 
           <div class="card-img-container">
-            <img 
+            <h2>Lil Card image here</h2>
+            {% comment %} <img 
               src="{% static 'images/flexarm-sm.png' %}" 
               alt="the same arm"
               height="50px"
-            >
+            > {% endcomment %}
           </div>
 
           <h2 class="card-title">{{ rep.name }}</h2>
