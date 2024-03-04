@@ -20,22 +20,26 @@
   {% for rep in reps %}
 
     <div class="card">
-      <div class="card-content">
+      <a href="/reps/{{ rep.id }}">
 
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/flexarm-sm.png' %}" 
-            alt="the same arm"
-            height="50px"
-          >
+        <div class="card-content">
+
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/flexarm-sm.png' %}" 
+              alt="the same arm"
+              height="50px"
+            >
+          </div>
+
+          <h2 class="card-title">{{ rep.name }}</h2>
+          <h3>{{ rep.category }}</h3>
+          <p><small>spent {{ rep.timespent }} minutes on {{ rep.timestamp }}</small></p>
+          <p>{{ rep.description }} </p>
+
         </div>
 
-        <h2 class="card-title">{{ rep.name }}</h2>
-        <h3>{{ rep.category }}</h3>
-        <p><small>spent {{ rep.timespent }} on {{ rep.timestamp }}</small></p>
-        <p>{{ rep.description }} </p>
-
-      </div>
+      </a>
     </div>
 
   {% endfor %}

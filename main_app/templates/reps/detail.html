@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/reps/rep-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="rep-container">
+  <div class="rep-img">
+    <img 
+      src="{% static 'images/flexarm-sm.png' %}" 
+      alt="the same arm"
+      height="50px"
+    >
+  </div>
+  <div class="rep-details">
+
+    <h2 class="card-title">{{ rep.name }}</h2>
+    <h3>{{ rep.category }}</h3>
+    <p><small>spent {{ rep.timespent }} minutes on {{ rep.created }}</small></p>
+    <p>{{ rep.description }} </p>
+
+  </div>
+</section>
+
+{% endblock %}

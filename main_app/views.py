@@ -29,3 +29,7 @@ def about(request):
 def rep_index(request):
   reps = Rep.objects.all()
   return render(request, 'reps/index.html', { 'reps': reps })
+
+def rep_detail(request, rep_id):
+  rep = Rep.objects.get(id=rep_id)
+  return render(request, 'reps/detail.html', { 'rep': rep })
