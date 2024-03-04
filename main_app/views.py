@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-#RB Step 1, for home view
-from django.http import HttpResponse
+#RB Step 1, for home view - unused now that we re-defined
+# from django.http import HttpResponse
 
 
 class Rep:  # Note that parens are optional if not inheriting from another class
@@ -20,7 +20,7 @@ reps = [
 
 
 def home(request):
-  return HttpResponse('<h1>We\'re gonna get some reps!</h1>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
