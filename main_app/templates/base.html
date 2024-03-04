@@ -22,7 +22,7 @@
   <header>
 
     <div class="header-logo-container">
-      <a href="/">
+      <a href="{% url 'home' %}">
         <img 
           src="{% static 'images/flexarm-med.png' %}"
           alt="Future Reps logo"
@@ -34,9 +34,8 @@
 
     <nav>
       <ul>
-        <li> nav bar </li>
-        <li><a href="/reps">View My Reps</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url 'rep-index' %}">View My Reps</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
 

@@ -20,7 +20,7 @@
   {% for rep in reps %}
 
     <div class="card">
-      <a href="/reps/{{ rep.id }}">
+      <a href="{% url 'rep-detail' rep.id %}">
 
         <div class="card-content">
 
