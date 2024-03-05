@@ -46,6 +46,12 @@ class RepCreate(CreateView):
   fields = '__all__'
   # fields = ['name', 'category', 'time_spent', 'description']
   success_url = '/reps/'
+  #RB Auth: called when valid form
+  def form_valid(self, form):
+    # Assign logged-in user (self.request.user)
+    form.instance.user = self.request.user  # form.instance is the rep
+    # continue w CreateView as usual
+    return super().form_valid(form)
 
 class RepUpdate(UpdateView):
   model = Rep
