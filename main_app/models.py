@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import datetime
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -24,6 +25,8 @@ class Rep(models.Model):
   updated = models.DateTimeField(auto_now=True)
   # updated = models.DateTimeField(auto_now=True, editable=False, null=False, blank=False)
   categories = models.ManyToManyField(Category)
+  # RB Auth - linking Rep to User
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name
