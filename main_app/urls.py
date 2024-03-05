@@ -7,6 +7,8 @@ urlpatterns = [
   path('', views.Home.as_view(), name='home'),
   path('about/', views.about, name='about'),
 
+  path('accounts/signup/', views.signup, name='signup'),
+
   path('reps/', views.rep_index, name='rep-index'),
   path('reps/<int:rep_id>', views.rep_detail, name='rep-detail'),
   path('reps/create', views.RepCreate.as_view(), name='rep-create'),

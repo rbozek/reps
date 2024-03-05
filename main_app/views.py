@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
 from .models import Rep, Category
 
 #RB Step 1, for home view - unused now that we re-defined
@@ -83,3 +88,23 @@ class CategoryUpdate(UpdateView):
 class CategoryDelete(DeleteView):
   model = Category
   success_url = '/categories/'
+
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # Create 'user' form object that includes data from browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # Add the user to the database
+      user = form.save()
+      # To log a user in
+      login(request, user)
+      return redirect('rep-index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # If there is a GET request, or a BAD POST req, render signup.html with empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
+  # Same as: return render(request, 'signup.html', {'form': form, 'error_message': error_message})
