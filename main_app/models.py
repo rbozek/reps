@@ -16,9 +16,9 @@ class Category(models.Model):
 
 class Rep(models.Model):
   name = models.CharField(max_length=100)
-  time_spent = models.IntegerField()
+  time_spent = models.IntegerField('Time spent (mins):')
+  rep_date_time = models.DateTimeField('Date & time:')
   description = models.TextField(max_length=500)
-  rep_date_time = models.DateTimeField(auto_now=True)
   created = models.DateTimeField(auto_now_add=True)
   # created = models.DateTimeField(auto_now_add=True, editable=False, null=False, blank=False)
   updated = models.DateTimeField(auto_now=True)
