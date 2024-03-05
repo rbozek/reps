@@ -39,7 +39,11 @@ def about(request):
   return render(request, 'about.html')
 
 def rep_index(request):
-  reps = Rep.objects.all()
+  # reads ALL reps, not just User's:
+  # reps = Rep.objects.all()
+  # 2 ways of accessing just User's reps:
+  reps = Rep.objects.filter(user=request.user)
+  # reps = request.user.rep_set.all()
   return render(request, 'reps/index.html', { 'reps': reps })
 
 def rep_detail(request, rep_id):
