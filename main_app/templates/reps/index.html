@@ -35,7 +35,15 @@
           </div>
 
           <h2 class="card-title">{{ rep.name }}</h2>
-          <h3>{{ rep.category }}</h3>
+
+          {% for category in rep.categories.all %}
+    
+          <div style="background-color: {{ category.color }}">
+          <h3>{{ category.name }} {{ category.color }}</h3>
+          </div>
+      
+          {% endfor %}
+
           <p><small>spent {{ rep.time_spent }} minutes on {{ rep.timestamp }}</small></p>
           <p>{{ rep.description }} </p>
 

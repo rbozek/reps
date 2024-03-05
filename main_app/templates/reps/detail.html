@@ -23,9 +23,22 @@
   <div class="rep-details">
 
     <h2 class="card-title">{{ rep.name }}</h2>
-    <h3>{{ rep.category }}</h3>
-    <p><small>spent {{ rep.time_spent }} minutes on {{ rep.created }}</small></p>
+
+    <p><small>spent {{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p>
+
+    {% for category in rep.categories.all %}
+    
+    <div style="background-color: {{ category.color }}">
+    <h3>{{ category.name }} {{ category.color }}</h3>
+    </div>
+
+    <br>
+    {% endfor %}
+
     <p>{{ rep.description }} </p>
+
+    <p><small>rep added: {{ rep.created }}</small></p>
+    <p><small>rep edited: {{ rep.edited }}</small></p>
 
     <div class="rep-actions">
       <a href="{% url 'rep-update' rep.id %}" class="btn warn">Edit</a>
