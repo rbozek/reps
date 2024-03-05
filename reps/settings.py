@@ -130,7 +130,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#RB Auth:
+#RB Auth (1st one is for decorators & mixins redirect):
+LOGIN_URL = 'home'
 LOGIN_REDIRECT_URL = 'rep-index'
 LOGOUT_REDIRECT_URL = 'home'
 

@@ -6,6 +6,8 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Rep, Category
 
@@ -38,6 +40,7 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def rep_index(request):
   # reads ALL reps, not just User's:
   # reps = Rep.objects.all()
@@ -46,11 +49,13 @@ def rep_index(request):
   # reps = request.user.rep_set.all()
   return render(request, 'reps/index.html', { 'reps': reps })
 
+@login_required
 def rep_detail(request, rep_id):
   rep = Rep.objects.get(id=rep_id)
   return render(request, 'reps/detail.html', { 'rep': rep })
 
-class RepCreate(CreateView):
+
+class RepCreate(LoginRequiredMixin, CreateView):
   model = Rep
   fields = '__all__'
   # fields = ['name', 'category', 'time_spent', 'description']
@@ -62,34 +67,34 @@ class RepCreate(CreateView):
     # continue w CreateView as usual
     return super().form_valid(form)
 
-class RepUpdate(UpdateView):
+class RepUpdate(LoginRequiredMixin, UpdateView):
   model = Rep
   fields = '__all__'
   # can specify specific fields if there's something we dont want to allow edit
   # fields = ['category', 'time_spent', 'description']
 
-class RepDelete(DeleteView):
+class RepDelete(LoginRequiredMixin, DeleteView):
   model = Rep
   success_url = '/reps/'
 
 
 
-class CategoryCreate(CreateView):
+class CategoryCreate(LoginRequiredMixin, CreateView):
   model = Category
   fields = '__all__'
 
-class CategoryList(ListView):
+class CategoryList(LoginRequiredMixin, ListView):
   model = Category
 
-class CategoryDetail(DetailView):
+class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
 
-class CategoryUpdate(UpdateView):
+class CategoryUpdate(LoginRequiredMixin, UpdateView):
   model = Category
   fields = '__all__'
   # fields = ['name', 'color']
 
-class CategoryDelete(DeleteView):
+class CategoryDelete(LoginRequiredMixin, DeleteView):
   model = Category
   success_url = '/categories/'
 
