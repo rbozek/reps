@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Rep
+from .models import Rep, Category
 
 #RB Step 1, for home view - unused now that we re-defined
 # from django.http import HttpResponse
@@ -51,3 +51,7 @@ class RepDelete(DeleteView):
   model = Rep
   success_url = '/reps/'
 
+
+class CategoryCreate(CreateView):
+  model = Category
+  fields = '__all__'

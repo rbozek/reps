@@ -9,4 +9,6 @@ urlpatterns = [
   path('reps/create', views.RepCreate.as_view(), name='rep-create'),
   path('reps/<int:pk>/update/', views.RepUpdate.as_view(), name='rep-update'),
   path('reps/<int:pk>/delete/', views.RepDelete.as_view(), name='rep-delete'),
+
+  path('categories/create/', views.CategoryCreate.as_view(), name='category-create'),
 ]
