@@ -39,14 +39,14 @@ def rep_detail(request, rep_id):
 class RepCreate(CreateView):
   model = Rep
   fields = '__all__'
-  # fields = ['name', 'category', 'timespent', 'description']
+  # fields = ['name', 'category', 'time_spent', 'description']
   success_url = '/reps/'
 
 class RepUpdate(UpdateView):
   model = Rep
   fields = '__all__'
   # can specify specific fields if there's something we dont want to allow edit
-  # fields = ['category', 'timespent', 'description']
+  # fields = ['category', 'time_spent', 'description']
 
 class RepDelete(DeleteView):
   model = Rep
