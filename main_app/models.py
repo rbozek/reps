@@ -18,3 +18,14 @@ class Rep(models.Model):
   
   def get_absolute_url(self):
     return reverse('rep-detail', kwargs={'rep_id': self.id})
+
+
+class Category(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('category-detail', kwargs={'pk': self.id})
