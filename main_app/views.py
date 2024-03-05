@@ -63,3 +63,12 @@ class CategoryList(ListView):
 
 class CategoryDetail(DetailView):
   model = Category
+
+class CategoryUpdate(UpdateView):
+  model = Category
+  fields = '__all__'
+  # fields = ['name', 'color']
+
+class CategoryDelete(DeleteView):
+  model = Category
+  success_url = '/categories/'
