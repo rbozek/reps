@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/categories/category-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Categories</h1>
+  <h2>View Categories image</h2>
+  {% comment %} <img src="{% static 'images/string.svg' %}" alt="A ball of string" /> {% endcomment %}
+</section>
+
+<section class="card-container">
+  {% for category in category_list %}
+  <div class="card" style="border-color: {{ category.color }}">
+    <div class="card-bg" style="background-color: {{ category.color }}"></div>
+    <a href="{% url 'category-detail' category.id %}">
+      <div class="card-content">
+        <h2>{{ category.name }}</h2>
+        <p>Color: {{ category.color }}</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

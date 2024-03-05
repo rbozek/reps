@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from .models import Rep, Category
 
 #RB Step 1, for home view - unused now that we re-defined
@@ -52,6 +53,13 @@ class RepDelete(DeleteView):
   success_url = '/reps/'
 
 
+
 class CategoryCreate(CreateView):
   model = Category
   fields = '__all__'
+
+class CategoryList(ListView):
+  model = Category
+
+class CategoryDetail(DetailView):
+  model = Category
