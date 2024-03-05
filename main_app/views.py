@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.views import LoginView
 from .models import Rep, Category
 
 #RB Step 1, for home view - unused now that we re-defined
@@ -22,8 +23,12 @@ from .models import Rep, Category
 # ]
 
 
-def home(request):
-  return render(request, 'home.html')
+
+# def home(request):
+#   return render(request, 'home.html')
+#RB Auth:
+class Home(LoginView):
+  template_name = 'home.html'
 
 def about(request):
   return render(request, 'about.html')
