@@ -48,21 +48,13 @@ class RepCreate(LoginRequiredMixin, CreateView):
 
 class RepUpdate(LoginRequiredMixin, UpdateView):
   model = Rep
-  fields = '__all__'
-  # can specify specific fields if there's something we dont want to allow edit
-  # fields = ['category', 'time_spent', 'description']
+  fields = ['name', 'time_spent', 'rep_date_time', 'description', 'categories']
 
 class RepDelete(LoginRequiredMixin, DeleteView):
   model = Rep
   success_url = '/reps/'
 
 
-
-class CategoryCreate(LoginRequiredMixin, CreateView):
-  model = Category
-  fields = '__all__'
-  def get_success_url(self):
-    return reverse_lazy('category-index')
 
 def category_list(request):
     categories = Category.objects.filter(user=request.user).order_by(Lower('name'))
@@ -72,20 +64,27 @@ def category_list(request):
 # class CategoryList(LoginRequiredMixin, ListView):
 #   model = Category
 
+class CategoryCreate(LoginRequiredMixin, CreateView):
+  model = Category
+  fields = ['name', 'color']
+  # fields = '__all__'
+  def get_success_url(self):
+    return reverse_lazy('category-index')
 
 class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
 
 class CategoryUpdate(LoginRequiredMixin, UpdateView):
   model = Category
-  fields = '__all__'
-  # fields = ['name', 'color']
+  fields = ['name', 'color']
+  # fields = '__all__'
   def get_success_url(self):
     return reverse_lazy('category-index')
 
 class CategoryDelete(LoginRequiredMixin, DeleteView):
   model = Category
   success_url = '/categories/'
+
 
 
 def signup(request):
