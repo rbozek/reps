@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/categories/category-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Categories</h1>
+  <a href="{% url 'category-create' %}"  class="btn standard">Add a Category</a>
+</section>
+<br>
+
+{% comment %} {% if category_list %} {% endcomment %}
+
+{% for category in category_list %}
+
+  <section class="category-container">
+    {% comment %} <a href="{% url 'category-detail' category.id %}"> {% endcomment %}
+      <div
+        class="category-label category-label-grow"
+        style="background-color: {{ category.color }};"
+      >
+        <p>{{ category.name }}</p>
+      </div>
+    {% comment %} </a> {% endcomment %}
+
+    <div class="category-adjacent">
+      {% comment %} <h4>category: {{ category.name }}</h4>
+      <h4>color: {{ category.color }}</h4> {% endcomment %}
+      <a href="{% url 'category-update' category.id %}" class="btn standard">Edit</a>
+      <a href="{% url 'category-delete' category.id %}" class="btn danger">Delete</a>
+    </div>
+
+  </section>
+
+{% endfor %}
+
+  {% comment %} {% else %} {% endcomment %}
+    {% comment %} <h3>No categories have been added yet!</h3> {% endcomment %}
+  {% comment %} {% endif %} {% endcomment %}
+
+
+{% endblock %}

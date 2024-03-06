@@ -4,37 +4,16 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 
+from django.db.models.functions import Lower
+
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
 from .models import Rep, Category
 
-#RB Step 1, for home view - unused now that we re-defined
-# from django.http import HttpResponse
-
-#RB Step 2, temp store model here
-# class Rep:  # Note that parens are optional if not inheriting from another class
-#   def __init__(self, name, category, timespent, description, timestamp):
-#     self.name = name
-#     self.category = category
-#     self.timespent = timespent
-#     self.description = description
-#     self.timestamp = timestamp
-
-# reps = [
-#   Rep('Practiced piano', 'Music', '30mins', 'Practiced scales & chords in 12 keys.', 'Tues 3 pm'),
-#   Rep('Practiced guitar', 'Music', '45mins', 'Practiced songs for lessons.', 'Fri 10 am'),
-#   Rep('Do some coding challenges', 'Coding', '1hr', 'Started working thru HackerRank challenges.', 'Mon 12 pm'),
-# ]
-
-
-
-# def home(request):
-#   return render(request, 'home.html')
 #RB Auth:
 class Home(LoginView):
   template_name = 'home.html'
@@ -87,8 +66,15 @@ class CategoryCreate(LoginRequiredMixin, CreateView):
   def get_success_url(self):
     return reverse_lazy('category-index')
 
-class CategoryList(LoginRequiredMixin, ListView):
-  model = Category
+def category_list(request):
+    categories = Category.objects.all().order_by(Lower('name'))
+    return render(request, 'categories/category_list.html', {'category_list': categories})
+    # return render(request, 'main-app/category_list.html', {'category_list': categories})
+    # return render(request, 'category_list.html', {'category_list': categories})
+
+# class CategoryList(LoginRequiredMixin, ListView):
+#   model = Category
+
 
 class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
