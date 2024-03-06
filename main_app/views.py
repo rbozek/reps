@@ -66,7 +66,8 @@ class CategoryCreate(LoginRequiredMixin, CreateView):
     return reverse_lazy('category-index')
 
 def category_list(request):
-    categories = Category.objects.all().order_by(Lower('name'))
+    categories = Category.objects.filter(user=request.user).order_by(Lower('name'))
+    # categories = Category.objects.all().order_by(Lower('name'))
     return render(request, 'categories/category_list.html', {'category_list': categories})
     # return render(request, 'main-app/category_list.html', {'category_list': categories})
     # return render(request, 'category_list.html', {'category_list': categories})
