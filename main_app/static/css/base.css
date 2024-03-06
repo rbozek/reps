@@ -161,9 +161,9 @@ small{
   /* margin: 20px; */
 }
 
-.btn {
+button, .btn {
   /* font-size: var(--font-l); */
-  padding: 8px 16px;
+  padding: 4px 16px;
   border-radius: 6px;
   border-width: 2px;
   border-style: solid;
@@ -172,6 +172,7 @@ small{
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
+  font-size: inherit;
   margin-right: 10px;
 }
 
@@ -184,9 +185,9 @@ small{
   border-color: var(--submit);
 }
 
-.secondary {
-  color: var(--secondary);
-  border-color: var(--secondary);
+.standard {
+  color: var(--custom-black-olive-bright);
+  border-color: var(--custom-black-olive);
 }
 
 .warn {

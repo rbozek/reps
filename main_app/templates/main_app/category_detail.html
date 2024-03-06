@@ -18,7 +18,7 @@
     <p>Color: {{ category.color }}</p>
   </div>
 </div>
-<a href="{% url 'category-update' category.id %}" class="btn warn">Edit</a>
+<a href="{% url 'category-update' category.id %}" class="btn standard">Edit</a>
 <a href="{% url 'category-delete' category.id %}" class="btn danger">Delete</a>
 
 {% endblock %}
