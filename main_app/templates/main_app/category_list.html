@@ -12,9 +12,8 @@
 {% block content %}
 
 <section class="page-header">
-  <h1>All Categories</h1>
-  {% comment %} <h2>View Categories image</h2> {% endcomment %}
-  {% comment %} <img src="{% static 'images/string.svg' %}" alt="A ball of string" /> {% endcomment %}
+  <h1>Categories</h1>
+  <a href="{% url 'category-create' %}"  class="btn standard">Add a Category</a>
 </section>
 
 <section class="card-container">
@@ -30,7 +29,5 @@
   </div>
   {% endfor %}
 </section>
-
-<a href="{% url 'category-create' %}">Add a Category</a>
 
 {% endblock %}
