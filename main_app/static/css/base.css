@@ -33,6 +33,7 @@ body {
   --custom-silver: #BDC2BF; /* rgb(189,194,191) */
   --custom-battleship-gray: #989C94; /* rgb(152,156,148) */
   --custom-black-olive: #25291C; /* rgb(37,41,28) */
+  --custom-black-olive-bright: #5e6749; /* rgb(37,41,28) */
   --custom-vanilla: #E6E49F; /* rgb(230,228,159) */
 
   --nav-bg: rgba(189,194,191, .9);  /* silver */
@@ -60,6 +61,14 @@ body {
   --card-box-shadow: 5px 5px 6px -1px #AAA;
   --card-border-radius: 6px;
 }
+
+a, a:visited {
+  text-decoration: underline;
+  color: var(--custom-black-olive-bright);
+}
+
+
+
 
 header {
   width: 100%;
@@ -112,12 +121,13 @@ main {
 
 h1 {
   font-size: var(--font-xxl);
-  margin: 4px 0px;
-  padding: 0px;
 }
 
 h2 {
   font-size: var(--font-xl);
+}
+
+h1, h2, h3, h4 {
   margin: 4px 0px;
   padding: 0px;
 }

@@ -17,6 +17,11 @@
   width: 100%;
 }
 
+.category-label{
+  display: inline-block;
+  padding: 4px;
+}
+
 .usr-img {
   width: 100%;
   border-radius: var(--card-border-radius);

@@ -21,29 +21,29 @@
   {% for rep in reps %}
 
     <div class="card">
-      <a href="{% url 'rep-detail' rep.id %}">
+      
 
         <div class="card-content">
 
           {% comment %} <div class="card-img-container"> {% endcomment %}
           {% comment %} </div> {% endcomment %}
-
-          <h2 class="card-title">{{ rep.name }}</h2>
+          <a href="{% url 'rep-detail' rep.id %}">
+            <h2 class="card-title">{{ rep.name }}</h2>
+          </a>
 
           {% for category in rep.categories.all %}
     
-          <div style="background-color: {{ category.color }}">
-          <h3>{{ category.name }} {{ category.color }}</h3>
+          <div class="category-label" style="background-color: {{ category.color }}">
+          <h3>{{ category.name }}</h3>
           </div>
       
           {% endfor %}
 
-          <p><small>spent {{ rep.time_spent }} minutes on {{ rep.timestamp }}</small></p>
+          <p><small>spent {{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p>
           <p>{{ rep.description }} </p>
 
         </div>
 
-      </a>
     </div>
 
   {% endfor %}
