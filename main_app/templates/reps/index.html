@@ -22,30 +22,37 @@
 
     <div class="card">
       
-
         <div class="card-content">
 
           {% comment %} <div class="card-img-container"> {% endcomment %}
           {% comment %} </div> {% endcomment %}
-          <a href="{% url 'rep-detail' rep.id %}">
-            <h2 class="card-title">{{ rep.name }}</h2>
-          </a>
+          <div class="title-and-label-container">
+            <a href="{% url 'rep-detail' rep.id %}">
+              <h3>{{ rep.name }}</h3>
+            </a>
 
-          {% for category in rep.categories.all %}
-    
-          <div class="category-label" style="background-color: {{ category.color }}">
-          <h3>{{ category.name }}</h3>
+            {% for category in rep.categories.all %}
+              <div
+                class="category-label"
+                style="
+                  background-color: {{ category.color }};
+                  {% comment %} border: 2px solid {{ category.color }}; {% endcomment %}
+                  {% comment %} color: {{ category.color }} {% endcomment %}
+                "
+              >
+                <p>{{ category.name }}</p>
+              </div>
+            {% endfor %}
           </div>
-      
-          {% endfor %}
 
-          <p><small>spent {{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p>
+
+          <p><small>{{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p>
           <p>{{ rep.description }} </p>
 
         </div>
 
     </div>
-
+    <br>
   {% endfor %}
 </section>
 

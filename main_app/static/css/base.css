@@ -56,7 +56,8 @@ body {
   --font-xl: 2rem;
   --font-l: 1.4rem;
   --font-reg: 1rem;
-  --font-sm: .8rem;
+  --font-s: .8rem;
+  --font-xs: .6rem;
   
   --card-box-shadow: 5px 5px 6px -1px #AAA;
   --card-border-radius: 6px;
@@ -127,15 +128,23 @@ h2 {
   font-size: var(--font-xl);
 }
 
+h2 {
+  font-size: var(--font-l);
+}
+
 h1, h2, h3, h4 {
-  margin: 4px 0px;
+  margin: 0px;
   padding: 0px;
 }
 
 p{
   font-size: var(--font-reg);
-  margin: 4px 0px;
+  margin: 0px;
   padding: 0px;
+}
+
+small{
+  font-size: var(--font-s);
 }
 
 /* moved logo image to LI in nav */
