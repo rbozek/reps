@@ -17,6 +17,12 @@
   {% comment %} <img src="{% static 'images/flexarm-sm.png' %}" alt="Arm" /> {% endcomment %}
 </section>
 
+{% if not reps %}
+  <br>
+  <h3>Nothing here yet! Get to work!</h3>
+{% endif %}
+
+
 <section class="card-container">
   {% for rep in reps %}
 

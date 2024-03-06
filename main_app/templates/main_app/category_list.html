@@ -17,6 +17,10 @@
 </section>
 <br>
 
+{% if not category_list %}
+  <h3>Nothing here yet! Get to work!</h3>
+{% endif %}
+
 {% comment %} {% if category_list %} {% endcomment %}
 
 {% for category in category_list %}
