@@ -2,7 +2,24 @@
 {% load static %}
 
 {% block head %}
+{% comment %} MCDatepicker: {% endcomment %}
+<link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+{% comment %} MCDatepicker ^ {% endcomment %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+
+{% comment %} MCDatepicker: {% endcomment %}
+<script defer src="{% static 'js/rep-form.js' %}"></script>
+{% comment %} MCDatepicker ^ {% endcomment %}
+
 {% endblock %}
 
 {% block content %}

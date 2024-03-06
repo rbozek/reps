@@ -34,3 +34,7 @@ class Rep(models.Model):
   
   def get_absolute_url(self):
     return reverse('rep-detail', kwargs={'rep_id': self.id})
+  
+  # for sorting - have not tested yet
+  # class Meta:
+  #   ordering = ['-rep_date_time']
