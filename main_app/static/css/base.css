@@ -63,11 +63,17 @@ body {
   --card-border-radius: 6px;
 }
 
-a, a:visited {
+a {
   text-decoration: underline;
   color: var(--custom-black-olive-bright);
 }
-
+a:visited {
+  color: var(--custom-battleship-gray);
+}
+a:active {
+  text-decoration: line-through;
+  color: var(--custom-vanilla);
+}
 
 
 
@@ -87,15 +93,18 @@ ul {
   padding: 0;
 }
 
-nav a {
+nav a, nav a:visited {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
   font-size: 1.4rem;
 }
-
 nav a:hover {
   color: var(--link-hover-color)
+}
+nav a:active {
+  color: var(--custom-black-olive-bright);
+  text-decoration: underline;
 }
 
 nav ul {
