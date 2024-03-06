@@ -18,13 +18,6 @@
 
     <h2 class="card-title">{{ rep.name }}</h2>
 
-    {% if rep.time_spent %}
-      <p><small>spent {{ rep.time_spent }} minutes
-    {% endif %}
-    {% if rep.rep_date_time %}
-      on {{ rep.rep_date_time }}</small></p>
-    {% endif %}
-    
     {% if rep.categories %}
       {% for category in rep.categories.all %}
         <div
@@ -36,7 +29,16 @@
       {% endfor %}
     {% endif %}
 
-    {% if rep.time_spent %}
+    <p><small>
+      {% if rep.time_spent %}
+        spent {{ rep.time_spent }} minutes
+      {% endif %}
+      {% if rep.rep_date_time %}
+        on {{ rep.rep_date_time }}
+      {% endif %}
+    </small></p>
+
+    {% if rep.description %}
       <p>{{ rep.description }} </p>
     {% endif %}
 

@@ -231,7 +231,7 @@ button, .btn {
 
 /* specific, accessed on many pages: */
 .category-label{
-  margin-left: 10px;
+  margin-right: 10px;
   display: inline-block;
   padding: 0px 4px;
   color: #FFFFFF;

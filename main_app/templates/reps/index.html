@@ -48,7 +48,17 @@
           </div>
 
 
-          <p><small>{{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p>
+          {% comment %} <p><small>{{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p> {% endcomment %}
+
+          <p><small>
+            {% if rep.time_spent %}
+              spent {{ rep.time_spent }} minutes
+            {% endif %}
+            {% if rep.rep_date_time %}
+              on {{ rep.rep_date_time }}
+            {% endif %}
+          </small></p>
+
           <p>{{ rep.description }} </p>
 
         </div>
