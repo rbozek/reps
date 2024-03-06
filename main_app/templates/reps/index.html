@@ -34,11 +34,7 @@
             {% for category in rep.categories.all %}
               <div
                 class="category-label"
-                style="
-                  background-color: {{ category.color }};
-                  {% comment %} border: 2px solid {{ category.color }}; {% endcomment %}
-                  {% comment %} color: {{ category.color }} {% endcomment %}
-                "
+                style="background-color: {{ category.color }};"
               >
                 <p>{{ category.name }}</p>
               </div>

@@ -190,13 +190,17 @@ small{
 }
 
 .warn {
-  color: var(--warn);
-  border-color: var(--warn);
+  color: var(--custom-black-olive-bright);
+  border-color: var(--custom-black-olive);
 }
 
 .danger {
-  color: var(--danger);
-  border-color: var(--danger);
+  color: var(--custom-black-olive);
+  border-color: var(--custom-black-olive);
+}
+.danger:hover {
+  color: var(--custom-silver);
+  background-color: var(--danger);
 }
 
 .page-header h1 {

@@ -12,33 +12,38 @@
 {% block content %}
 
 <section class="rep-container">
-  <div class="rep-img">
-    {% comment %} <h2>Detail image here</h2> {% endcomment %}
-    {% comment %} <img 
-      src="{% static 'images/flexarm-sm.png' %}" 
-      alt="the same arm"
-      height="50px"
-    > {% endcomment %}
-  </div>
+  {% comment %} <div class="rep-img"> {% endcomment %}
+  {% comment %} </div> {% endcomment %}
   <div class="rep-details">
 
     <h2 class="card-title">{{ rep.name }}</h2>
 
-    <p><small>spent {{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p>
-
-    {% for category in rep.categories.all %}
+    {% if rep.time_spent %}
+      <p><small>spent {{ rep.time_spent }} minutes
+    {% endif %}
+    {% if rep.rep_date_time %}
+      on {{ rep.rep_date_time }}</small></p>
+    {% endif %}
     
-    <div style="background-color: {{ category.color }}">
-    <h3>{{ category.name }} {{ category.color }}</h3>
-    </div>
+    {% if rep.categories %}
+      {% for category in rep.categories.all %}
+        <div
+          class="category-label"
+          style="background-color: {{ category.color }};"
+        >
+          <p>{{ category.name }}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
 
-    <br>
-    {% endfor %}
+    {% if rep.time_spent %}
+      <p>{{ rep.description }} </p>
+    {% endif %}
 
-    <p>{{ rep.description }} </p>
-
-    <p><small>rep added: {{ rep.created }}</small></p>
-    <p><small>rep edited: {{ rep.edited }}</small></p>
+    <p><small>added: {{ rep.created }}</small></p>
+    {% if rep.edited %}
+    <p><small>edited: {{ rep.edited }}</small></p>
+    {% endif %}
 
     <div class="rep-actions">
       <a href="{% url 'rep-update' rep.id %}" class="btn warn">Edit</a>
