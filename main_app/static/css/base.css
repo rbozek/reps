@@ -218,6 +218,17 @@ button, .btn {
   margin-left: 20px;
 }
 
-/* .page-content {
-  font-size: var(--font-reg);
-} */
+
+
+/* specific, accessed on many pages: */
+.category-label{
+  margin-left: 10px;
+  display: inline-block;
+  padding: 0px 4px;
+  color: #FFFFFF;
+  border: var(--borders);
+  border-radius: 4px;
+}
+.category-label p{
+  font-size: var(--font-s)
+}

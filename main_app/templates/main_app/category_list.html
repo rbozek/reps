@@ -15,19 +15,34 @@
   <h1>Categories</h1>
   <a href="{% url 'category-create' %}"  class="btn standard">Add a Category</a>
 </section>
+<br>
 
-<section class="card-container">
-  {% for category in category_list %}
-  <div class="card" style="border-color: {{ category.color }}">
-    <div class="card-bg" style="background-color: {{ category.color }}"></div>
+{% comment %} {% if category_list %} {% endcomment %}
+
+{% for category in category_list %}
+
+  <section class="category-container">
     <a href="{% url 'category-detail' category.id %}">
-      <div class="card-content">
-        <h2>{{ category.name }}</h2>
-        <p>Color: {{ category.color }}</p>
+      <div
+        class="category-label category-label-grow"
+        style="background-color: {{ category.color }};"
+      >
+        <p>{{ category.name }}</p>
       </div>
     </a>
-  </div>
-  {% endfor %}
-</section>
+
+    <div class="category-adjacent">
+      <h4>category: {{ category.name }}</h4>
+      <h4>color: {{ category.color }}</h4>
+    </div>
+
+  </section>
+
+{% endfor %}
+
+  {% comment %} {% else %} {% endcomment %}
+    {% comment %} <h3>No categories have been added yet!</h3> {% endcomment %}
+  {% comment %} {% endif %} {% endcomment %}
+
 
 {% endblock %}
