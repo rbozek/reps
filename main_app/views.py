@@ -37,8 +37,7 @@ def rep_detail(request, rep_id):
 
 class RepCreate(LoginRequiredMixin, CreateView):
   model = Rep
-  fields = '__all__'
-  # fields = ['name', 'category', 'time_spent', 'description']
+  fields = ['name', 'time_spent', 'rep_date_time', 'description', 'categories']
   success_url = '/reps/'
   #RB Auth: called when valid form
   def form_valid(self, form):

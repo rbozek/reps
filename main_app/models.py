@@ -18,14 +18,14 @@ class Category(models.Model):
 
 class Rep(models.Model):
   name = models.CharField(max_length=100)
-  time_spent = models.IntegerField('Time spent (mins):')
-  rep_date_time = models.DateTimeField('Date & time:')
-  description = models.TextField(max_length=500)
+  time_spent = models.IntegerField('Time spent (mins):', null=True, blank=True)
+  rep_date_time = models.DateTimeField('Date & time:', null=True, blank=True)
+  description = models.TextField(max_length=500, null=True, blank=True)
   created = models.DateTimeField(auto_now_add=True)
   # created = models.DateTimeField(auto_now_add=True, editable=False, null=False, blank=False)
   updated = models.DateTimeField(auto_now=True)
   # updated = models.DateTimeField(auto_now=True, editable=False, null=False, blank=False)
-  categories = models.ManyToManyField(Category)
+  categories = models.ManyToManyField(Category, null=True, blank=True)
   # RB Auth - linking Rep to User
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
