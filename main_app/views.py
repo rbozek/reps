@@ -67,9 +67,7 @@ class CategoryCreate(LoginRequiredMixin, CreateView):
 def category_list(request):
     categories = Category.objects.filter(user=request.user).order_by(Lower('name'))
     # categories = Category.objects.all().order_by(Lower('name'))
-    return render(request, 'categories/category_list.html', {'category_list': categories})
-    # return render(request, 'main-app/category_list.html', {'category_list': categories})
-    # return render(request, 'category_list.html', {'category_list': categories})
+    return render(request, 'main_app/category_list.html', {'category_list': categories})
 
 # class CategoryList(LoginRequiredMixin, ListView):
 #   model = Category
