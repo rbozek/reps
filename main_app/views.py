@@ -21,13 +21,12 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+
 @login_required
 def rep_index(request):
-  # reads ALL reps, not just User's:
-  # reps = Rep.objects.all()
   # 2 ways of accessing just User's reps:
-  reps = Rep.objects.filter(user=request.user)
   # reps = request.user.rep_set.all()
+  reps = Rep.objects.filter(user=request.user).order_by('-rep_date_time')
   return render(request, 'reps/index.html', { 'reps': reps })
 
 @login_required
