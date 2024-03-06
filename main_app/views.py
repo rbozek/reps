@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -8,6 +9,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from .models import Rep, Category
 
@@ -82,6 +84,8 @@ class RepDelete(LoginRequiredMixin, DeleteView):
 class CategoryCreate(LoginRequiredMixin, CreateView):
   model = Category
   fields = '__all__'
+  def get_success_url(self):
+    return reverse_lazy('category-index')
 
 class CategoryList(LoginRequiredMixin, ListView):
   model = Category
@@ -93,6 +97,8 @@ class CategoryUpdate(LoginRequiredMixin, UpdateView):
   model = Category
   fields = '__all__'
   # fields = ['name', 'color']
+  def get_success_url(self):
+    return reverse_lazy('category-index')
 
 class CategoryDelete(LoginRequiredMixin, DeleteView):
   model = Category

@@ -11,7 +11,9 @@
 
 .category-label-grow {
   padding: 20px;
-  font-size: var(--font-xl);
+}
+.category-label-grow > p {
+  font-size: var(--font-l);
 }
 
 .category-adjacent {

@@ -22,18 +22,20 @@
 {% for category in category_list %}
 
   <section class="category-container">
-    <a href="{% url 'category-detail' category.id %}">
+    {% comment %} <a href="{% url 'category-detail' category.id %}"> {% endcomment %}
       <div
         class="category-label category-label-grow"
         style="background-color: {{ category.color }};"
       >
         <p>{{ category.name }}</p>
       </div>
-    </a>
+    {% comment %} </a> {% endcomment %}
 
     <div class="category-adjacent">
-      <h4>category: {{ category.name }}</h4>
-      <h4>color: {{ category.color }}</h4>
+      {% comment %} <h4>category: {{ category.name }}</h4>
+      <h4>color: {{ category.color }}</h4> {% endcomment %}
+      <a href="{% url 'category-update' category.id %}" class="btn standard">Edit</a>
+      <a href="{% url 'category-delete' category.id %}" class="btn danger">Delete</a>
     </div>
 
   </section>
