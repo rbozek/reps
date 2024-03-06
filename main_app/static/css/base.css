@@ -6,15 +6,14 @@ html {
 *, /* All elements*/
 *::before, /* All ::before pseudo-elements */
 *::after { /* All ::after pseudo-elements */
-  /* height & width will now include border & padding by default
-     but can be over-ridden as needed */
+  /* height & width now incl border & padding by default - can override as needed */
   box-sizing: inherit;
 }
 
 /* resets font size to be 62.5% of the user preference - 
      in most browser configurations this will be 10px */
 :root {
-  font-size: 62.5%
+  font-size: 1em;
 }
 
 body {
@@ -22,27 +21,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
-    'Helvetica Neue', sans-serif;
+  font-family: 'Oswald', 'Roboto Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   min-height: 100vh;
-  --nav-bg: rgba(104, 197, 248, .7);
-  --nav-bg-ff: rgba(104, 197, 248, .9);
-  --borders: rgb(36, 116, 248) solid 2px;
-  --text-color: rgb(17, 20, 17);
-  --link-hover-color: rgb(16, 56, 158);
+  /* beige: */
+  background-color: #E3E7D3;  
+  /* vanilla: */
+  /* background-color: #E6E49F; */
+
+
+  --custom-beige: #E3E7D3; /* rgb(227,231,211) */
+  --custom-silver: #BDC2BF; /* rgb(189,194,191) */
+  --custom-battleship-gray: #989C94; /* rgb(152,156,148) */
+  --custom-black-olive: #25291C; /* rgb(37,41,28) */
+  --custom-vanilla: #E6E49F; /* rgb(230,228,159) */
+
+  --nav-bg: rgba(189,194,191, .9);  /* silver */
+  --nav-bg-ff: rgba(189,194,191, .7);  /* silver */
+  --borders: #25291C solid 2px;  /* black-olive */
+
+  --text-color:  #25291C;
+
+  --link-hover-color: #E6E49F;
+
   --button-bg: rgb(245, 245, 245);
   --button-bg-hover: rgb(226, 226, 226);
   --submit: rgb(26, 128, 0);
   --warn: rgb(255, 102, 0);
   --danger: rgb(220, 20, 30);
   --secondary: rgb(57, 57, 57);
+
+  --font-supersize: 4rem;
+  --font-xxl: 2.4rem;
+  --font-xl: 2rem;
+  --font-l: 1.4rem;
+  --font-reg: 1rem;
+  --font-sm: .8rem;
+  
   --card-box-shadow: 5px 5px 6px -1px #AAA;
-  --font-xtreme: 4.2rem;
-  --font-xxl: 3.6rem;
-  --font-xl: 2.4rem;
-  --font-l: 1.8rem;
-  --font-reg: 1.6rem;
   --card-border-radius: 6px;
 }
 
@@ -53,7 +68,7 @@ header {
 }
 
 nav {
-  margin: 10px;
+  margin: 4px;
 }
 
 ul {
@@ -62,20 +77,11 @@ ul {
   padding: 0;
 }
 
-main {
-  width: 100%;
-  padding: 0 10px;
-}
-
-h2 {
-  font-size: var(--font-xl);
-}
-
 nav a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.4rem;
 }
 
 nav a:hover {
@@ -90,23 +96,54 @@ nav ul {
 }
 
 nav li {
-  padding: 5px 8px;
+  padding: 0px 8px;
 }
 
-.header-logo-container {
-  margin: auto;
-  padding: 10px 20px 0;
-  max-width: 500px;
+
+
+main {
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
 }
+
+h1 {
+  font-size: var(--font-xxl);
+  margin: 4px 0px;
+  padding: 0px;
+}
+
+h2 {
+  font-size: var(--font-xl);
+  margin: 4px 0px;
+  padding: 0px;
+}
+
+p{
+  font-size: var(--font-reg);
+  margin: 4px 0px;
+  padding: 0px;
+}
+
+/* moved logo image to LI in nav */
+/* .header-logo-container { */
+  /* margin: auto; */
+  /* padding: 10px 20px 0; */
+  /* max-width: 500px; */
+/* }   */
 
 .page-header {
   display: flex;
   align-items: center;
-  margin: 20px;
+  flex-direction: column;  /* remove if I want to stack next to h2 */
+  /* margin: 20px; */
 }
 
 .btn {
-  font-size: var(--font-l);
+  /* font-size: var(--font-l); */
   padding: 8px 16px;
   border-radius: 6px;
   border-width: 2px;
@@ -157,115 +194,6 @@ nav li {
   margin-left: 20px;
 }
 
-.page-content {
+/* .page-content {
   font-size: var(--font-reg);
-}
-
-@media only screen and (min-width: 768px) {
-  header {
-    position: sticky;
-    display: flex;
-    flex-direction: row;
-    top: 0;
-    align-items: center;
-  }
-
-  main {
-    max-width: 1300px;
-    min-height: calc(100vh - 53px);
-  }
-
-  nav,
-  .header-logo-container {
-    margin: 10px 0;
-    padding: 0 15px;
-  }
-
-  /* visual fix to help align logo */
-  .header-logo-container {
-    padding-top: 3px;
-  }
-
-  nav {
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-  }
-
-  nav ul {
-    flex-wrap: nowrap;
-  }
-
-  .header-logo-container {
-    width: 213px;
-  }
-
-  .page-header h1 {
-    font-size: var(--font-xtreme);
-  }
-  
-  .page-header img {
-    height: 50px;
-    margin-left:20px;
-  }
-  
-  .page-header img:first-of-type {
-    margin-left: 25px;
-  }
-
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    header {
-      background: var(--nav-bg);
-      -webkit-backdrop-filter: blur(3px);
-      backdrop-filter: blur(3px);
-    }
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  main {
-    min-height: calc(100vh - 55px);
-  }
-  
-  header {
-    margin: 20px 20px 0 20px;
-    width: calc(100vw - 40px);
-    max-width: 1920px;
-    top: 20px;
-    background-color: transparent;
-    border-bottom: none;
-  }
-
-  nav,
-  .header-logo-container {
-    margin: 0;
-    background: var(--nav-bg-ff);
-    border: var(--borders);
-    border-radius: 18px;
-  }
-
-  nav {
-    margin-left: auto;
-  }
-
-  .header-logo-container {
-    /* visual fix to help align logo */
-    padding-top: 6px;
-    width: 256px;
-    height: 35px;
-  }
-
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    header {
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-    }
-
-    nav,
-    .header-logo-container {
-      background: rgba(104, 197, 248, .6);
-      -webkit-backdrop-filter: blur(3px);
-      backdrop-filter: blur(3px);
-    }
-  }
-}
+} */

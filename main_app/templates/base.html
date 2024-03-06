@@ -6,6 +6,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
   <link
     rel="shortcut icon"
     type="image/png"
@@ -21,20 +27,27 @@
 
   <header>
 
-    <div class="header-logo-container">
-      <a href="{% url 'home' %}">
-        <h2>Home image here</h2>
-        {% comment %} <img 
-          src="{% static 'images/flexarm-med.png' %}"
-          alt="Future Reps logo"
-          height="100px"
-        > {% endcomment %}
-        {% comment %} <p>logo will go here!</p> {% endcomment %}
-      </a>
-    </div>
+    {% comment %} <div class="header-logo-container"> {% endcomment %}
+      {% comment %} <a href="{% url 'home' %}">
+        <img 
+        src="{% static 'images/brain-ai-1-crop.png' %}"
+        alt="Reps logo"
+        height="80px"
+      >
+      </a> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
 
     <nav>
       <ul>
+          <li>
+            <a href="{% url 'home' %}">
+              <img 
+              src="{% static 'images/brain-ai-1-crop.png' %}"
+              alt="Reps logo"
+              height="40px"
+            >
+            </a>
+          </li>
         {% if user.is_authenticated %}
           <li><a href="{% url 'rep-index' %}">View My Reps</a></li>
           <li><a href="{% url 'rep-create' %}">Add a Rep</a></li>
@@ -59,6 +72,10 @@
     {% block content %}
     {% endblock %}
   </main>
+  
+  {% comment %} <footer>
+    <p>temp footer</p>
+  </footer> {% endcomment %}
 
 </body>
 </html>

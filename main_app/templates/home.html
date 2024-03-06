@@ -8,25 +8,28 @@
 {% block content %}
 
 <section class="logo-container">
-  <div class="cat-container">
-    {% comment %} <img src="{% static 'images/splash.svg' %}" alt="The Cat Collector Cat" /> {% endcomment %}
-    <h2>Home image here</h2>
-    {% comment %} <img 
-      src="{% static 'images/flexarm-med.png' %}"
-      alt="Future Reps logo"
-      height="100px"
-    > {% endcomment %}
-  </div>
-  {% comment %} <img 
-    src="{% static 'images/logotype.svg' %}" 
-    alt="Text reads: Cat Collector"
-  /> {% endcomment %}
-  <h2>Reps text logo</h2>
+  {% comment %} <div class="brain-container"> {% endcomment %}
+    <img 
+      src="{% static 'images/brain-ai-1-crop.png' %}"
+      alt="Reps logo"
+      height="240px"
+    >
+  {% comment %} </div> {% endcomment %}
+    <img 
+      src="{% static 'images/reps-font-logo-edit.png' %}"
+      alt="Reps logo"
+      height="80px"
+    >
+    <div class="quote-container">
+      <h3>“I only write when inspiration strikes. Fortunately it strikes at nine every morning.”</h3>
+      {% comment %} <br> {% endcomment %}
+      <h4>-William Faulkner</h4>
+    </div>
 </section>
 
 
-{% if not user.is_authenticated %}
 
+{% if not user.is_authenticated %}
   <section>
     <form action="{% url 'home' %}" method="post" class="login">
       <h1>Login</h1>

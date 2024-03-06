@@ -20,24 +20,41 @@ main > section {
 }
 
 .logo-container {
-  max-width: 375px;
+  max-width: 80%;
 }
 
-.cat-container {
+/* .brain-container {
   width: 80%;
+} */
+
+.quote-container {
+  /* display: flex; */
+  text-align: center;
+}
+.quote-container > h3, h4 {
+  /* display: flex; */
+  margin: 4px 0px;
+  padding: 0px;
 }
 
 .login {
+  border: var(--borders);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-box-shadow);
+  padding: 10px;
+
+  width: 80%;
+  max-width: 260px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
 }
 
-.login h1 {
-  font-size: clamp(3.2rem, 3vw, 4.8rem);
-  margin: 10px 0;
+.login > h1 {
+  margin: 4px 0px;
+  padding: 0px;
 }
 
 .login > p {
@@ -58,29 +75,7 @@ main > section {
 }
 
 .login .btn {
-  align-self: flex-end;
-  margin-right: 0;
+  /* margin-auto: 0; */
   margin-top: 16px;
 }
 
-@media only screen and (min-width: 768px) {
-  main {
-    justify-content: space-around;
-  }
-
-  main > section {
-    width: 40%;
-  }
-
-  .login {
-    border: var(--borders);
-    padding: 20px;
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--card-box-shadow);
-    width: 100%;
-  }
-
-  .logo-container {
-    max-width: 520px;
-  }
-}
