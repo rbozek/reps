@@ -63,12 +63,9 @@ body {
   --card-border-radius: 6px;
 }
 
-a {
+a, a:visited {
   text-decoration: underline;
   color: var(--custom-black-olive-bright);
-}
-a:visited {
-  color: var(--custom-battleship-gray);
 }
 a:active {
   text-decoration: line-through;

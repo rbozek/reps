@@ -36,7 +36,7 @@
             <a href="{% url 'rep-detail' rep.id %}">
               <h3>{{ rep.name }}</h3>
             </a>
-
+            &nbsp;&nbsp;&nbsp;
             {% for category in rep.categories.all %}
               <div
                 class="category-label"

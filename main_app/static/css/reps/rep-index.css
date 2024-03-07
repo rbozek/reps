@@ -26,6 +26,17 @@
   display: flex;
   align-items: center;
 }
+.title-and-label-container a {
+  text-decoration: underline;
+  color: var(--custom-black-olive-bright);
+}
+.title-and-label-container a:visited {
+  color: var(--custom-battleship-gray);
+}
+.title-and-label-container a:active {
+  text-decoration: line-through;
+  color: var(--custom-vanilla);
+}
 
 
 

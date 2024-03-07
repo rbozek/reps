@@ -53,7 +53,7 @@ main > section {
 }
 
 .login > h1 {
-  margin: 4px 0px;
+  margin: 0px;
   padding: 0px;
 }
 
@@ -61,12 +61,12 @@ main > section {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 14px 0 0px;
+  margin: 4px 0 0px;
 }
 
 .login label {
   font-size: var(--font-reg);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .login input {
