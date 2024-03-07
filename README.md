@@ -11,9 +11,9 @@ The human mind has an incredible capacity for learning new and different skills.
 Every time you practice (or "do a rep"), add it! If you're working on multiple disciplines, add a custom category label. Customize each entry with as much (or as little) detail as you like. See all your reps listed in one place & build up momentum as you keep doing more reps! I believe in you!
 
 # [OPEN REPS](https://reps-app.fly.dev)
-There is a Guest Account available for those who don't wish to sign up:
-username: guest
-p@ssw0rd (remove dashes): r-e-p-s-g-u-e-s-t
+There is a **Guest Account** available for those who don't wish to sign up:
+  username: **guest**
+  p@ssw0rd (remove dashes): **r-e-p-s-g-u-e-s-t**
 
 ## :desktop_computer:	Technologies used 
 
