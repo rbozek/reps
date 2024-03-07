@@ -12,8 +12,8 @@
 {% block content %}
 
 <section class="rep-container">
-  {% comment %} <div class="rep-img"> {% endcomment %}
-  {% comment %} </div> {% endcomment %}
+  {% comment %} stretch: {% endcomment %}
+  {% comment %} <div class="rep-img"></div> {% endcomment %}
   <div class="rep-details">
 
     <h2 class="card-title">{{ rep.name }}</h2>
@@ -43,28 +43,26 @@
     </small></p>
 
     {% if rep.description %}
-    <p>{{ rep.description }} </p>
+      <p>{{ rep.description }} </p>
     {% endif %}
   
-
     {% if rep.photo.url %}
-    <img 
-      src="{{rep.photo.url}}" 
-      alt="A photo of {{rep.name}}"
-      class="usr-img"
-      style="max-height: 500px; width: auto; max-width: 80%;"
-    >
+      <img 
+        src="{{rep.photo.url}}" 
+        alt="A photo of {{rep.name}}"
+        class="usr-img"
+        style="max-height: 500px; width: auto; max-width: 80%;"
+      >
     {% else %}
       <p></p>
     {% endif %}
 
     <br>
     {% if rep.photo.url %}
-    <h3>Change photo</h3>
+      <h3>Change photo</h3>
     {% else %}
-    <h3>Add photo</h3>
+      <h3>Add photo</h3>
     {% endif %}
-    {% comment %} <p id="file-name"></p> {% endcomment %}
     <form 
     action="{% url 'add-photo' rep.id %}"
     enctype="multipart/form-data"
@@ -73,12 +71,10 @@
     >
       {% csrf_token %}
       <label class="btn secondary">
-        {% comment %} Choose photo {% endcomment %}
         <input type="file" name="photo-file" id="file-input">
       </label><br>
       <button type="submit" class="btn submit">Upload</button>
     </form>
-
 
     <br>
     <p><small>rep added: {{ rep.created }}</small></p>

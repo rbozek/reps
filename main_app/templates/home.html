@@ -8,13 +8,11 @@
 {% block content %}
 
 <section class="logo-container">
-  {% comment %} <div class="brain-container"> {% endcomment %}
     <img 
       src="{% static 'images/reps-logo-tp-big.png' %}"
       alt="Reps logo"
       width="360px"
     >
-  {% comment %} </div> {% endcomment %}
     <img 
       src="{% static 'images/reps-font-logo-edit.png' %}"
       alt="Reps logo"
@@ -22,11 +20,9 @@
     >
     <div class="quote-container">
       <h3>“I only write when inspiration strikes. Fortunately it strikes at nine every morning.”</h3>
-      {% comment %} <br> {% endcomment %}
       <h4>-William Faulkner</h4>
     </div>
 </section>
-
 
 
 {% if not user.is_authenticated %}

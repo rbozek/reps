@@ -15,7 +15,7 @@ RUN mkdir -p /code
 
 WORKDIR /code
 
-#RB added
+# RB note - added
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \

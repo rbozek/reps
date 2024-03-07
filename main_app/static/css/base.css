@@ -70,18 +70,15 @@ a:active {
   color: var(--custom-vanilla);
 }
 
-
 header {
   width: 100%;
   background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
   border-bottom: var(--borders);
 }
 
-
 nav {
   margin: 4px;
 }
-
 nav ul {
   display: flex;
   align-items: center;
@@ -123,39 +120,28 @@ nav a:active {
 }
 
 
-
 main {
   width: 100%;
   padding: 0 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* justify-content: center; */
 }
-
 h1 {
   font-size: var(--font-xxl);
 }
-
-h2 {
-  font-size: var(--font-xl);
-}
-
 h2 {
   font-size: var(--font-l);
 }
-
 h1, h2, h3, h4 {
   margin: 0px;
   padding: 0px;
 }
-
 p{
   font-size: var(--font-reg);
   margin: 0px;
   padding: 0px;
 }
-
 small{
   font-size: var(--font-s);
 }
@@ -179,26 +165,21 @@ button, .btn {
   font-size: inherit;
   margin-right: 10px;
 }
-
 .btn:hover {
   background-color: var(--button-bg-hover);
 }
-
 .submit {
   color: var(--custom-black-olive-bright);
   border-color: var(--custom-black-olive);
 }
-
 .standard {
   color: var(--custom-black-olive-bright);
   border-color: var(--custom-black-olive);
 }
-
 .warn {
   color: var(--custom-black-olive-bright);
   border-color: var(--custom-black-olive);
 }
-
 .danger {
   color: var(--custom-black-olive);
   border-color: var(--custom-black-olive);
@@ -207,24 +188,20 @@ button, .btn {
   color: var(--custom-silver);
   background-color: var(--danger);
 }
-
 .page-header h1 {
   font-size: var(--font-xxl);
   margin: 0;
 }
-
 .page-header img {
   height: 40px;
   margin-left:15px;
 }
-
 .page-header img:first-of-type {
   margin-left: 20px;
 }
 
 
-
-/* re-used on many pages: */
+/* re-used on several pages: */
 .category-label{
   margin-right: 10px;
   display: inline-block;
@@ -239,7 +216,6 @@ button, .btn {
 .category-label p{
   font-size: var(--font-s)
 }
-
 
 /* about page only */
 .about-container {

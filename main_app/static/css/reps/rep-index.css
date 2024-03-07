@@ -2,7 +2,6 @@
   padding: 0 20px;
   width: 70%;
 }
-
 @media only screen and (max-width: 768px) {  
   .card-container {
     padding: 0 20px;
@@ -11,7 +10,6 @@
 }
 
 .card {
-  /* margin: 8px; */
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
   margin-bottom: 0px;
@@ -19,14 +17,12 @@
   /* to account for tiny corner photo: */
   min-height: 52px;
 }
-
 .card-content {
   padding: 4px;
   width: 100%;
   /* to properly position tiny corner photo: */
   position: relative;
 }
-
 .title-and-label-container{
   display: flex;
   align-items: center;
