@@ -26,7 +26,7 @@ class Rep(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   updated = models.DateTimeField(auto_now=True)
   categories = models.ManyToManyField(Category, blank=True)
-  # RB Auth - linking Rep to User
+  # Auth - linking Rep to User:
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
@@ -34,10 +34,7 @@ class Rep(models.Model):
   
   def get_absolute_url(self):
     return reverse('rep-detail', kwargs={'rep_id': self.id})
-  
-  # for sorting - have not tested yet
-  # class Meta:
-  #   ordering = ['-rep_date_time']
+
 
 class Photo(models.Model):
   url = models.CharField(max_length=250)

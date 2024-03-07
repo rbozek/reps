@@ -19,7 +19,7 @@ import boto3
 S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
 BUCKET = 'reps-app'
 
-#RB Auth:
+# Auth:
 class Home(LoginView):
   template_name = 'home.html'
 
@@ -27,9 +27,31 @@ def about(request):
   return render(request, 'about.html')
 
 
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # Create 'user' form object that includes data from browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # Add user to the database
+      user = form.save()
+      # To log user in
+      login(request, user)
+      return redirect('rep-index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # If there is a GET request, or a BAD POST req, render signup.html with empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
+  # Alt method: return render(request, 'signup.html', {'form': form, 'error_message': error_message})
+
+
+
 @login_required
 def rep_index(request):
-  # 2 ways of accessing just User's reps:
+  # Alt way to access User's reps:
   # reps = request.user.rep_set.all()
   reps = Rep.objects.filter(user=request.user).order_by('-rep_date_time')
   return render(request, 'reps/index.html', { 'reps': reps })
@@ -39,15 +61,14 @@ def rep_detail(request, rep_id):
   rep = Rep.objects.get(id=rep_id)
   return render(request, 'reps/detail.html', { 'rep': rep })
 
-
 class RepCreate(LoginRequiredMixin, CreateView):
   model = Rep
   fields = ['name', 'time_spent', 'rep_date_time', 'description', 'categories']
   success_url = '/reps/'
-  #RB Auth: called when valid form
+  # Auth: called when valid form
   def form_valid(self, form):
-    # Assign logged-in user (self.request.user)
-    form.instance.user = self.request.user  # form.instance is the rep
+    # Assigns logged-in user (self.request.user)
+    form.instance.user = self.request.user   # form.instance is the rep
     # continue w CreateView as usual
     return super().form_valid(form)
   # this chunk is to prevent non-user categories from appearing:
@@ -73,32 +94,28 @@ class RepDelete(LoginRequiredMixin, DeleteView):
 
 def category_list(request):
     categories = Category.objects.filter(user=request.user).order_by(Lower('name'))
+    # To display ALL categories, not just user's:
     # categories = Category.objects.all().order_by(Lower('name'))
     return render(request, 'main_app/category_list.html', {'category_list': categories})
-
-# class CategoryList(LoginRequiredMixin, ListView):
-#   model = Category
 
 class CategoryCreate(LoginRequiredMixin, CreateView):
   model = Category
   fields = ['name', 'color']
-  #RB Auth: called when valid form
+  # Auth: called when valid form
   def form_valid(self, form):
-    # Assign logged-in user (self.request.user)
-    form.instance.user = self.request.user  # form.instance is the rep
+    # Assigns logged-in user (self.request.user)
+    form.instance.user = self.request.user  # form.instance is the category
     # continue w CreateView as usual
     return super().form_valid(form)
   def get_success_url(self):
     return reverse_lazy('category-index')
   
-
 class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
 
 class CategoryUpdate(LoginRequiredMixin, UpdateView):
   model = Category
   fields = ['name', 'color']
-  # fields = '__all__'
   def get_success_url(self):
     return reverse_lazy('category-index')
 
@@ -107,25 +124,6 @@ class CategoryDelete(LoginRequiredMixin, DeleteView):
   success_url = '/categories/'
 
 
-
-def signup(request):
-  error_message = ''
-  if request.method == 'POST':
-    # Create 'user' form object that includes data from browser
-    form = UserCreationForm(request.POST)
-    if form.is_valid():
-      # Add the user to the database
-      user = form.save()
-      # To log a user in
-      login(request, user)
-      return redirect('rep-index')
-    else:
-      error_message = 'Invalid sign up - try again'
-  # If there is a GET request, or a BAD POST req, render signup.html with empty form
-  form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
-  return render(request, 'signup.html', context)
-  # Same as: return render(request, 'signup.html', {'form': form, 'error_message': error_message})
 
 def add_photo(request, rep_id):
   # photo-file will be the "name" attribute on the <input type="file">
@@ -141,7 +139,7 @@ def add_photo(request, rep_id):
       s3.upload_fileobj(photo_file, BUCKET, key)
       # build the full url string
       url = f"{S3_BASE_URL}{BUCKET}/{key}"
-      # we can assign to rep_id or rep (if you have a rep object)
+      # can assign to rep_id or rep (if you have a rep object)
       photo = Photo(url=url, rep_id=rep_id)
       # Remove old photo if it exists
       rep_photo = Photo.objects.filter(rep_id=rep_id)

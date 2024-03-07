@@ -2,8 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-  # path('', views.home, name='home'),
-  #RB Auth:
   path('', views.Home.as_view(), name='home'),
   path('about/', views.about, name='about'),
 
@@ -18,11 +16,7 @@ urlpatterns = [
 
   path('categories/create/', views.CategoryCreate.as_view(), name='category-create'),
   path('categories/<int:pk>/', views.CategoryDetail.as_view(), name='category-detail'),
-
   path('categories/', views.category_list, name='category-index'),
-  # path('categories/', views.CategoryList.as_view(), name='category-index'),
-
-
   path('categories/<int:pk>/update/', views.CategoryUpdate.as_view(), name='category-update'),
   path('categories/<int:pk>/delete/', views.CategoryDelete.as_view(), name='category-delete'),
 ]
