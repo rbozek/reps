@@ -26,52 +26,57 @@
 
     <div class="card">
       
-        <div class="card-content">
-          
-          {% if rep.photo.url %}
-          <div class="rep-photo-tiny-corner">
-            <img 
-              src="{{rep.photo.url}}" 
-              alt="A photo of {{rep.name}}"
-              class="usr-img"
-              style="max-height: 40px; width:auto;"
-            >
-          </div>
-          {% endif %}
-
-          {% comment %} <div class="card-img-container"> {% endcomment %}
-          {% comment %} </div> {% endcomment %}
-          <div class="title-and-label-container">
-            <a href="{% url 'rep-detail' rep.id %}">
-              <h3>{{ rep.name }}</h3>
-            </a>
-            &nbsp;&nbsp;&nbsp;
-            {% for category in rep.categories.all %}
-              <div
-                class="category-label"
-                style="background-color: {{ category.color }};"
-              >
-                <p>{{ category.name }}</p>
-              </div>
-            {% endfor %}
-          </div>
-
-
-
-          {% comment %} <p><small>{{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p> {% endcomment %}
-
-          <p><small>
-            {% if rep.time_spent %}
-              spent {{ rep.time_spent }} minutes
-            {% endif %}
-            {% if rep.rep_date_time %}
-              on {{ rep.rep_date_time }}
-            {% endif %}
-          </small></p>
-
-          <p>{{ rep.description }} </p>
-
+      <div class="card-content">
+        
+        {% if rep.photo.url %}
+        <div class="rep-photo-tiny-corner">
+          <img 
+            src="{{rep.photo.url}}" 
+            alt="A photo of {{rep.name}}"
+            class="usr-img"
+            style="max-height: 40px; width:auto;"
+          >
         </div>
+        {% endif %}
+
+        <div class="title-and-label-container">
+          <a href="{% url 'rep-detail' rep.id %}">
+            <h3>{{ rep.name }}</h3>
+          </a>
+          &nbsp;&nbsp;&nbsp;
+          {% for category in rep.categories.all %}
+            <div
+              class="category-label"
+              style="background-color: {{ category.color }};"
+            >
+              <p>{{ category.name }}</p>
+            </div>
+          {% endfor %}
+        </div>
+
+
+
+        {% comment %} <p><small>{{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p> {% endcomment %}
+
+        <p><small>
+          {% if rep.time_spent %}
+            spent {{ rep.time_spent }} minutes
+          {% endif %}
+          {% if rep.rep_date_time %}
+            on {{ rep.rep_date_time }}
+          {% endif %}
+        </small></p>
+
+
+        {% if rep.description %}
+          {% if rep.description|length > 50 %}
+            <p>{{ rep.description|slice:":50" }}...</p>
+          {% else %}
+            {{rep.description}}
+          {% endif %}
+        {% endif %}
+
+      </div>
 
     </div>
     <br>
