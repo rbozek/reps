@@ -10,8 +10,6 @@ html {
   box-sizing: inherit;
 }
 
-/* resets font size to be 62.5% of the user preference - 
-     in most browser configurations this will be 10px */
 :root {
   font-size: 1em;
 }
@@ -28,7 +26,6 @@ body {
   background-color: #E3E7D3;  
   /* vanilla: */
   /* background-color: #E6E49F; */
-
 
   --custom-beige: #E3E7D3; /* rgb(227,231,211) */
   --custom-silver: #BDC2BF; /* rgb(189,194,191) */
@@ -74,23 +71,32 @@ a:active {
 }
 
 
-
 header {
   width: 100%;
   background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
   border-bottom: var(--borders);
 }
 
+
 nav {
   margin: 4px;
 }
 
-ul {
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   margin: 0;
-  list-style: none;
   padding: 0;
+  list-style: none;
 }
-
+nav li {
+  padding: 0px 8px;
+}
+.nav-logo {
+  height: 34px;
+}
 nav a, nav a:visited {
   text-decoration: none;
   color: var(--text-color);
@@ -104,16 +110,16 @@ nav a:active {
   color: var(--custom-black-olive-bright);
   text-decoration: underline;
 }
-
-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-nav li {
-  padding: 0px 8px;
+@media only screen and (max-width: 480px) {  
+  nav li {
+    padding: 0px 4px;
+  }
+  .nav-logo {
+    height: 20px;
+  }
+  nav a, nav a:visited {
+    font-size: 1rem;
+  }
 }
 
 
@@ -154,22 +160,13 @@ small{
   font-size: var(--font-s);
 }
 
-/* moved logo image to LI in nav */
-/* .header-logo-container { */
-  /* margin: auto; */
-  /* padding: 10px 20px 0; */
-  /* max-width: 500px; */
-/* }   */
-
 .page-header {
   display: flex;
   align-items: center;
   flex-direction: column;  /* remove if I want to stack next to h2 */
-  /* margin: 20px; */
 }
 
 button, .btn {
-  /* font-size: var(--font-l); */
   padding: 4px 16px;
   border-radius: 6px;
   border-width: 2px;
