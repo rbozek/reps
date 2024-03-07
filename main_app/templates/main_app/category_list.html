@@ -27,9 +27,14 @@
 
   <section class="category-container">
     {% comment %} <a href="{% url 'category-detail' category.id %}"> {% endcomment %}
+
       <div
-        class="category-label category-label-grow"
-        style="background-color: {{ category.color }};"
+      style="background-color: {{ category.color }};"
+      class="category-label category-label-grow
+        {% if category.color == 'white' or category.color == '' or not category.color %}
+          category-label-bright-fix
+        {% endif %}
+        "
       >
         <p>{{ category.name }}</p>
       </div>

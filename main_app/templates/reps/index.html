@@ -48,7 +48,7 @@
             <div
               style="background-color: {{ category.color }};"
               class="category-label
-                {% if category.color == 'white' or category.color == '' %}
+                {% if category.color == 'white' or category.color == '' or not category.color %}
                   category-label-bright-fix
                 {% endif %}
                 "

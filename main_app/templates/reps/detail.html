@@ -21,8 +21,12 @@
     {% if rep.categories %}
       {% for category in rep.categories.all %}
         <div
-          class="category-label"
-          style="background-color: {{ category.color }};"
+        style="background-color: {{ category.color }};"
+        class="category-label
+          {% if category.color == 'white' or category.color == '' or not category.color %}
+            category-label-bright-fix
+          {% endif %}
+          "
         >
           <p>{{ category.name }}</p>
         </div>
