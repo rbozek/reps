@@ -227,7 +227,7 @@ button, .btn {
 
 
 
-/* specific, accessed on many pages: */
+/* re-used on many pages: */
 .category-label{
   margin-right: 10px;
   display: inline-block;
@@ -238,4 +238,17 @@ button, .btn {
 }
 .category-label p{
   font-size: var(--font-s)
+}
+
+
+/* about page only */
+.about-container {
+  display: flex; /* Use flexbox */
+  flex-direction: column;
+  justify-content: center; /* Horizontally center items */
+  align-items: center; /* Vertically center items */
+  text-align: center; /* Center text within container */
+}
+.about-container p {
+  margin-top: 8px;
 }
