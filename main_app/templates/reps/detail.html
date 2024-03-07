@@ -60,17 +60,18 @@
     {% else %}
     <h3>Add photo</h3>
     {% endif %}
-    <p id="file-name"></p>
+    {% comment %} <p id="file-name"></p> {% endcomment %}
     <form 
     action="{% url 'add-photo' rep.id %}"
     enctype="multipart/form-data"
     method="POST"
+    class="photo-add-form"
     >
       {% csrf_token %}
       <label class="btn secondary">
         {% comment %} Choose photo {% endcomment %}
         <input type="file" name="photo-file" id="file-input">
-      </label>
+      </label><br>
       <button type="submit" class="btn submit">Upload</button>
     </form>
 
