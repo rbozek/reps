@@ -249,3 +249,8 @@ button, .btn {
 .about-container p {
   margin-top: 8px;
 }
+
+/* signup page only: */
+.red-text {
+  color: red;
+}
