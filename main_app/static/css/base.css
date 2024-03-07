@@ -242,9 +242,9 @@ button, .btn {
 .about-container {
   display: flex; /* Use flexbox */
   flex-direction: column;
-  justify-content: center; /* Horizontally center items */
-  align-items: center; /* Vertically center items */
-  text-align: center; /* Center text within container */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .about-container p {
   margin-top: 8px;
@@ -253,4 +253,13 @@ button, .btn {
 /* signup page only: */
 .red-text {
   color: red;
+}
+
+/* delete-rep only */
+.delete-rep-container {
+  margin-top: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
