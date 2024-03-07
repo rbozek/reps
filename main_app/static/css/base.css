@@ -256,7 +256,7 @@ button, .btn {
 }
 
 /* delete-rep only */
-.delete-rep-container {
+.delete-header-container {
   margin-top: 40px;
   flex-direction: column;
   justify-content: center;
