@@ -30,8 +30,9 @@
 
     <nav>
       <ul>
+        {% if user.is_authenticated %}
           <li>
-            <a href="{% url 'home' %}">
+            <a href="{% url 'about' %}">
               <img 
               src="{% static 'images/reps-logo-tp-sm.png' %}"
               alt="Reps logo"
@@ -39,13 +40,9 @@
             >
             </a>
           </li>
-        {% if user.is_authenticated %}
           <li><a href="{% url 'rep-index' %}">View Reps</a></li>
           <li><a href="{% url 'rep-create' %}">Add a Rep</a></li>
-
           <li><a href="{% url 'category-index' %}">Categories</a></li>
-
-          <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'logout' %}">Log out</a></li>
         {% else %}
           <li><a href="{% url 'about' %}">About</a></li>
