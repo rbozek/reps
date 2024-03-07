@@ -255,7 +255,7 @@ button, .btn {
   color: red;
 }
 
-/* delete-rep only */
+/* delete-rep & delete-category */
 .delete-header-container {
   margin-top: 40px;
   flex-direction: column;
