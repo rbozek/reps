@@ -4,7 +4,7 @@
 ![photo title](photo url)
 
 "Practice makes practice makes practice makes prefect oops makes perfect."
--me
+  -me
 
 The human mind has an incredible capacity for learning new and different skills. You don't need talent. All it takes is desire, discipline, and REPETITION. Reps is designed to help you keep track and keep yourself accountable. 
 
@@ -25,11 +25,11 @@ There is a **Guest Account** available for those who don't wish to sign up:
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Fly.io](https://img.shields.io/badge/Fly.io%20-%20purple)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+![Fly.io](https://img.shields.io/badge/Fly.io%20-%20purple)
 
 ## :handshake:	Credits
 
