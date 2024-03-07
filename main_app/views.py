@@ -72,9 +72,15 @@ def category_list(request):
 class CategoryCreate(LoginRequiredMixin, CreateView):
   model = Category
   fields = ['name', 'color']
-  # fields = '__all__'
+  #RB Auth: called when valid form
+  def form_valid(self, form):
+    # Assign logged-in user (self.request.user)
+    form.instance.user = self.request.user  # form.instance is the rep
+    # continue w CreateView as usual
+    return super().form_valid(form)
   def get_success_url(self):
     return reverse_lazy('category-index')
+  
 
 class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
