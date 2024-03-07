@@ -187,8 +187,8 @@ button, .btn {
 }
 
 .submit {
-  color: var(--submit);
-  border-color: var(--submit);
+  color: var(--custom-black-olive-bright);
+  border-color: var(--custom-black-olive);
 }
 
 .standard {

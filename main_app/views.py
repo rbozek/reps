@@ -12,7 +12,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Rep, Category
+from .models import Rep, Category, Photo
+#AWS photo svc:
+import uuid
+import boto3
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
+BUCKET = 'reps-app'
 
 #RB Auth:
 class Home(LoginView):
@@ -105,3 +110,28 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
   # Same as: return render(request, 'signup.html', {'form': form, 'error_message': error_message})
+
+def add_photo(request, rep_id):
+  # photo-file will be the "name" attribute on the <input type="file">
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    # need a unique "key" for S3 / needs image file extension too
+		# uuid.uuid4().hex generates a random hexadecimal Universally Unique Identifier
+    # Add on the file extension using photo_file.name[photo_file.name.rfind('.'):]
+    key = uuid.uuid4().hex + photo_file.name[photo_file.name.rfind('.'):]
+    # just in case something goes wrong
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      # build the full url string
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      # we can assign to rep_id or rep (if you have a rep object)
+      photo = Photo(url=url, rep_id=rep_id)
+      # Remove old photo if it exists
+      rep_photo = Photo.objects.filter(rep_id=rep_id)
+      if rep_photo.first():
+        rep_photo.first().delete()
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+  return redirect('rep-detail', rep_id=rep_id)

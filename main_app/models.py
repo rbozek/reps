@@ -38,3 +38,10 @@ class Rep(models.Model):
   # for sorting - have not tested yet
   # class Meta:
   #   ordering = ['-rep_date_time']
+
+class Photo(models.Model):
+  url = models.CharField(max_length=250)
+  rep = models.OneToOneField(Rep, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"Photo for rep_id: {self.rep_id} @{self.url}"

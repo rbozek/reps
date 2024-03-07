@@ -39,12 +39,46 @@
     </small></p>
 
     {% if rep.description %}
-      <p>{{ rep.description }} </p>
+    <p>{{ rep.description }} </p>
+    {% endif %}
+  
+
+    {% if rep.photo.url %}
+    <img 
+      src="{{rep.photo.url}}" 
+      alt="A photo of {{rep.name}}"
+      class="usr-img"
+      style="max-height: 500px; width: auto; max-width: 80%;"
+    >
+    {% else %}
+      <p></p>
     {% endif %}
 
-    <p><small>added: {{ rep.created }}</small></p>
+    <br>
+    {% if rep.photo.url %}
+    <h3>Change photo</h3>
+    {% else %}
+    <h3>Add photo</h3>
+    {% endif %}
+    <p id="file-name"></p>
+    <form 
+    action="{% url 'add-photo' rep.id %}"
+    enctype="multipart/form-data"
+    method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        {% comment %} Choose photo {% endcomment %}
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload</button>
+    </form>
+
+
+    <br>
+    <p><small>rep added: {{ rep.created }}</small></p>
     {% if rep.edited %}
-    <p><small>edited: {{ rep.edited }}</small></p>
+    <p><small>last edited: {{ rep.edited }}</small></p>
     {% endif %}
 
     <div class="rep-actions">

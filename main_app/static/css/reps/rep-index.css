@@ -15,11 +15,16 @@
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
   margin-bottom: 0px;
+  position: relative;
+  /* to account for tiny corner photo: */
+  min-height: 52px;
 }
 
 .card-content {
   padding: 4px;
   width: 100%;
+  /* to properly position tiny corner photo: */
+  position: relative;
 }
 
 .title-and-label-container{
@@ -38,9 +43,13 @@
   color: var(--custom-vanilla);
 }
 
-
+.rep-photo-tiny-corner{
+  position: absolute; 
+  top: 4px; 
+  right: 4px;  
+  z-index: 9999; /
+}
 
 .usr-img {
-  width: 100%;
   border-radius: var(--card-border-radius);
 }

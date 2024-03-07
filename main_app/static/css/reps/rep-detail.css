@@ -29,7 +29,6 @@
 }
 
 .usr-img {
-  width: 100%;
   border-radius: var(--card-border-radius);
 }
 
@@ -43,3 +42,4 @@
   align-items: flex-start;
   /* justify-content: center; */
 }
+

@@ -29,6 +29,17 @@
     <div class="card">
       
         <div class="card-content">
+          
+          {% if rep.photo.url %}
+          <div class="rep-photo-tiny-corner">
+            <img 
+              src="{{rep.photo.url}}" 
+              alt="A photo of {{rep.name}}"
+              class="usr-img"
+              style="max-height: 40px; width:auto;"
+            >
+          </div>
+          {% endif %}
 
           {% comment %} <div class="card-img-container"> {% endcomment %}
           {% comment %} </div> {% endcomment %}
@@ -46,6 +57,7 @@
               </div>
             {% endfor %}
           </div>
+
 
 
           {% comment %} <p><small>{{ rep.time_spent }} minutes on {{ rep.rep_date_time }}</small></p> {% endcomment %}
