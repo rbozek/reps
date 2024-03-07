@@ -6,17 +6,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% comment %} Google fonts: {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link
-    rel="shortcut icon"
-    type="image/png"
-    href="{% static 'images/favicon-arm.png' %}"
-  >
+  <link rel="icon" type="image/png" href="{% static 'images/favicon-arm.png' %}">
+  {% comment %} safety favicon fallback for older browsers: {% endcomment %}
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
   <title>Reps</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
@@ -26,7 +27,6 @@
 <body>
 
   <header>
-
 
     <nav>
       <ul>
