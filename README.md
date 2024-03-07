@@ -50,5 +50,6 @@ There is a **Guest Account** available for those who don't wish to sign up:
 
 ## :ice_cube::boxing_glove: Ice Box Features 
 
+- incorporate "time" back into Reps model in addition to date
 - Reps Index page, add options to display: sort by date/category, or view one category at a time
 - allow User to edit their user info/profile
