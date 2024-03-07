@@ -50,10 +50,20 @@ class RepCreate(LoginRequiredMixin, CreateView):
     form.instance.user = self.request.user  # form.instance is the rep
     # continue w CreateView as usual
     return super().form_valid(form)
+  # this chunk is to prevent non-user categories from appearing:
+  def get_form(self, form_class=None):
+    form = super().get_form(form_class)
+    form.fields['categories'].queryset = form.fields['categories'].queryset.filter(user=self.request.user)
+    return form
 
 class RepUpdate(LoginRequiredMixin, UpdateView):
   model = Rep
   fields = ['name', 'time_spent', 'rep_date_time', 'description', 'categories']
+  # this chunk is to prevent non-user categories from appearing:
+  def get_form(self, form_class=None):
+    form = super().get_form(form_class)
+    form.fields['categories'].queryset = form.fields['categories'].queryset.filter(user=self.request.user)
+    return form
 
 class RepDelete(LoginRequiredMixin, DeleteView):
   model = Rep
