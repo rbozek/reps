@@ -1,4 +1,3 @@
-
 """
 Django settings for reps project.
 
@@ -19,9 +18,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# RB Added: to protect env contents
+# RB note - to protect env contents
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -32,9 +30,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#RB deployment added values:
+# RB note - deployment added values:
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'reps-app.fly.dev']
-#RB deployment
+# RB note - deployment
 CSRF_TRUSTED_ORIGINS = ['https://reps-app.fly.dev']
 
 # Application definition
@@ -46,13 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #RB deployment:
+    # RB note - deployment:
     'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #RB deployment:
+    # RB note - deployment:
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,7 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'reps.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -97,7 +94,6 @@ DATABASES = {
         'OPTIONS': {'sslmode': 'require'}
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -117,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -129,18 +124,17 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-#RB deployment:
+# RB note -  deployment:
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-# optional:
+# RB note -  optional:
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-#RB Auth (1st one is for decorators & mixins redirect):
+# RB note - Auth (1st one is for decorators & mixins redirect):
 LOGIN_URL = 'home'
 LOGIN_REDIRECT_URL = 'rep-index'
 LOGOUT_REDIRECT_URL = 'home'

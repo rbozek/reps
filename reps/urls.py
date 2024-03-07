@@ -15,13 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-#RB add 'include' in Step 1
+# RB note - 'include' added in early step!
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #RB add Step 1 - '' represents root route
+    # RB note - represents root routes
     path('', include('main_app.urls')),
-    #RB Auth: include built-in auth urls for built-in views
+    # RB note - Auth: include built-in auth urls for built-in views
     path('accounts/', include('django.contrib.auth.urls')),
 ]
