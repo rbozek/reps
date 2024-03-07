@@ -38,7 +38,7 @@ body {
   --nav-bg-ff: rgba(189,194,191, .7);  /* silver */
   --borders: #25291C solid 2px;  /* black-olive */
 
-  --text-color:  #25291C;
+  --text-color:  #25291C;  /* black-olive */
 
   --link-hover-color: #E6E49F;
 
@@ -232,6 +232,9 @@ button, .btn {
   color: #FFFFFF;
   border: var(--borders);
   border-radius: 4px;
+}
+.category-label-bright-fix{
+  color: var(--text-color);
 }
 .category-label p{
   font-size: var(--font-s)
