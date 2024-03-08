@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
-  name = models.CharField('Name (required):', max_length=50)
+  name = models.CharField('Name (required)', max_length=50)
   color = models.CharField(max_length=25, null=True, blank=True)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -17,15 +17,15 @@ class Category(models.Model):
 
 
 class Rep(models.Model):
-  name = models.CharField('Name (required):', max_length=100)
-  time_spent = models.IntegerField('Time spent (mins):', null=True, blank=True)
+  name = models.CharField('Title (required)', max_length=100)
+  time_spent = models.IntegerField('Time spent (mins)', null=True, blank=True)
   # ice-box: add 'time' back in
   # rep_date_time = models.DateTimeField('Date & time:', null=True, blank=True)
-  rep_date_time = models.DateField('Date:', null=True, blank=True)
+  rep_date_time = models.DateField('Date', null=True, blank=True)
   description = models.TextField(max_length=500, null=True, blank=True)
   created = models.DateTimeField(auto_now_add=True)
   updated = models.DateTimeField(auto_now=True)
-  categories = models.ManyToManyField(Category, blank=True)
+  categories = models.ManyToManyField(Category, verbose_name='Categories (multiples allowed)', blank=True)
   # Auth - linking Rep to User:
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
