@@ -26,6 +26,10 @@
 .title-and-label-container{
   display: flex;
   align-items: center;
+  flex-direction: row;
+}
+.title-and-label-photo-pad{
+  padding-right: 36px;
 }
 .title-and-label-container a {
   text-decoration: underline;

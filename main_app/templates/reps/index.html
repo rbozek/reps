@@ -33,16 +33,20 @@
               src="{{rep.photo.url}}" 
               alt="A photo of {{rep.name}}"
               class="usr-img"
-              style="max-height: 40px; width:auto;"
+              style="max-height: 40px; width:auto; max-width:40px;"
             >
           </div>
+          
+        
+          <div class="title-and-label-container title-and-label-photo-pad">
+        {% else %}
+          <div class="title-and-label-container">
         {% endif %}
-
-        <div class="title-and-label-container">
+        
           <a href="{% url 'rep-detail' rep.id %}">
             <h3>{{ rep.name }}</h3>
           </a>
-          &nbsp;&nbsp;&nbsp;
+          &nbsp;
           {% for category in rep.categories.all %}
             <div
               style="background-color: {{ category.color }};"

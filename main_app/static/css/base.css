@@ -51,8 +51,8 @@ body {
 
   --font-supersize: 4rem;
   --font-xxl: 2.4rem;
-  --font-xl: 2rem;
-  --font-l: 1.4rem;
+  --font-xl: 1.4rem;
+  --font-l: 1.2rem;
   --font-reg: 1rem;
   --font-s: .8rem;
   --font-xs: .6rem;
@@ -131,6 +131,9 @@ h1 {
   font-size: var(--font-xxl);
 }
 h2 {
+  font-size: var(--font-xl);
+}
+h3 {
   font-size: var(--font-l);
 }
 h1, h2, h3, h4 {
@@ -203,7 +206,7 @@ button, .btn {
 
 /* re-used on several pages: */
 .category-label{
-  margin-right: 10px;
+  margin-right: 4px;
   display: inline-block;
   padding: 0px 4px;
   color: #FFFFFF;
