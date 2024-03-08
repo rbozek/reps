@@ -43,12 +43,15 @@ There is a **Guest Account** available for those who don't wish to sign up:
 
 ## :wrench:	Basic Improvements (a.k.a. not quite Ice Box)
 
-- refine display to work better for both mobile and desktop
-- add footer to page with lower-priority links (About, LogOut, etc)
-- refine & improve the various add-forms - clearer descriptions, cleaner display
+- Reps Index page, add options to display: sort by date/category, or view one category at a time
+- implement a less-wordy syntax for the "user makes a label with a bright color background" text conditional
+- improve MCDatePicker appearance 
+- in Reps Index view, adjust title & labels to be inline so they all wrap
 
 ## :ice_cube::boxing_glove: Ice Box Features 
 
+- add footer to page with lower-priority links (About, LogOut, etc)
+- refine display for bigger distinction bw mobile and desktop
 - incorporate "time" back into Reps model in addition to date
-- Reps Index page, add options to display: sort by date/category, or view one category at a time
+- refine & improve the various add-forms (i.e. red warning text, displaying "categories" more cleanly)
 - allow User to edit their user info/profile
