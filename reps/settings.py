@@ -28,7 +28,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # RB note - deployment added values:
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'reps-app.fly.dev']
