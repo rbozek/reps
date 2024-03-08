@@ -224,10 +224,17 @@ button, .btn {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 0 50px 0 50px;
 }
 .about-container p {
   margin-top: 8px;
 }
+@media only screen and (max-width: 480px) {  
+  .about-container {
+    margin: 0 10px 0 10px;
+  }
+}
+
 
 /* signup page only: */
 .red-text {
