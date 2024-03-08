@@ -12,7 +12,7 @@ table {
 
 th {
   text-align: left;
-  padding: 6px 20px 0 0;
+  padding: 6px 10px 0 0;
   font-weight: normal;
   vertical-align: top;
   font-size: var(--font-reg);
@@ -24,7 +24,7 @@ td {
 
 td > * {
   width: 100%;
-  padding: 2px 4px;
+  /* padding: 2px 4px; */
   font-size: var(--font-l);
 }
 
@@ -36,4 +36,8 @@ td > textarea {
 .btn {
   align-self: flex-end;
   margin-right: 40px;
+}
+
+.helptext {
+  font-size: var(--font-reg);
 }
