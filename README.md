@@ -1,7 +1,7 @@
 # REPS
 ### Buff up your brain.
 
-<img src="./main_app/static/images/readme/FILENAME.png" alt="TEXT HERE" height="400"/>
+<img src="./main_app/static/images/readme/reps-screenshot1.png" alt="TEXT HERE" height="400"/>
 
 "Practice makes practice makes practice makes prefect oops makes perfect."
   -me
@@ -10,8 +10,7 @@ The human mind has an incredible capacity for learning different skills. You don
 
 Every time you practice (or "do a rep"), add it to your list! If you're working in multiple disciplines, add a custom category label. Customize each entry with as much (or as little) detail as you like. Add an optional image. See all your reps listed in one place & build up momentum as you keep doing more! I believe in you! 
 
-<img src="./main_app/static/images/readme/FILENAME.png" alt="TEXT HERE" height="300"/>
-<img src="./main_app/static/images/readme/FILENAME.png" alt="TEXT HERE" height="300"/>
+<img src="./main_app/static/images/readme/reps-screenshot2.png" alt="TEXT HERE" height="300"/><img src="./main_app/static/images/readme/reps-screenshot3.png" alt="TEXT HERE" height="300"/>
 
 # [OPEN REPS](https://reps-app.fly.dev)
 There is a **Guest Account** available for those who don't wish to sign up:
